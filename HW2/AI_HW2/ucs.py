@@ -39,6 +39,7 @@ def ucs(start, end):
         if current == end:
             break
         for neighbor in graph[current]:
+            temp = cost[current] + graph[current][neighbor][0]
             if visited[neighbor] == -1:
                 visited[neighbor] = current
                 cost[neighbor] = temp
