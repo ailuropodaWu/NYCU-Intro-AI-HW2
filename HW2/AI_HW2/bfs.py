@@ -55,7 +55,9 @@ def bfs(start, end):
 
 
 if __name__ == '__main__':
-    path, dist, num_visited = bfs(2270143902, 1079387396)
-    print(f'The number of path nodes: {len(path)}')
-    print(f'Total distance of path: {dist}')
-    print(f'The number of visited nodes: {num_visited}')
+    testcases = ((2270143902, 1079387396), (426882161, 1737223506), (1718165260, 8513026827))
+    for testcase in testcases:
+        path, dist, num_visited = bfs(testcase[0], testcase[1])
+        print(f'The number of path nodes: {len(path)}')
+        print(f'Total distance of path: {dist}')
+        print(f'The number of visited nodes: {num_visited}')
