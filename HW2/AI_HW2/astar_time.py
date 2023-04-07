@@ -4,6 +4,16 @@ heuristicFile = 'heuristic.csv'
 
 
 def astar_time(start, end):
+    ''' 
+    Read the edges.csv file and put the node data in a dict() called graph.
+    Read the heuristic.csv file and store the distance of the node to the endnode in the dict() called heuristicCost
+    Use a dict() called speed to record the max speed of the node to another nodes
+    Use another dict() called visited to record the nodes' parents, if it is not visited, the value is -1.
+    Use another dict() called cost to record the cost time (distance / speed) of the node, and initialize it to 10^8.
+    And do the similar algorithm as ucs(dijkstra), but sort the queue by the sum of the alpha * cost and the 
+    (1-alpha) * heuristicCost / speed of the nodes (I use the alpha 0.507), then find the final path by looking the 
+    parent of nodes' in the visited dict(), calculate the total time at the same time.
+    ''' 
     # Begin your code (Part 6)
     file = open(edgeFile, 'r')
     csvFile = csv.reader(file)
@@ -69,7 +79,7 @@ def astar_time(start, end):
     queue.append(start)
     time = 0
     num_visited = 1
-    alpha = 0.507 # 0.507 0.6113
+    alpha = 0.507
     while len(queue) > 0:
         queue = sorted(queue, key=lambda x: alpha * cost[x] + (1 - alpha) * heuristicCost[x] * 3.6 / speed[x])
         current = queue.pop(0)

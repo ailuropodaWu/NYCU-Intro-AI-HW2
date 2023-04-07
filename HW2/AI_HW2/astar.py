@@ -4,6 +4,14 @@ heuristicFile = 'heuristic.csv'
 
 
 def astar(start, end):
+    ''' 
+    Read the edges.csv file and put the node data in a dict() called graph.
+    Read the heuristic.csv file and store the distance of the node to the endnode in the dict() called heuristicCost
+    Use another dict() called visited to record the nodes' parents, if it is not visited, the value is -1.
+    Use another dict() called cost to record the cost of the node, and initialize it to 10^8.
+    And do the similar algorithm as ucs(dijkstra), but sort the queue by the sum of the cost and the heuristicCost of the nodes,
+    then find the final path by looking the parent of nodes' in the visited dict(), claculate the total distance at the same time.
+    ''' 
     # Begin your code (Part 4)
     file = open(edgeFile, 'r')
     csvFile = csv.reader(file)

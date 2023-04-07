@@ -3,6 +3,12 @@ edgeFile = 'edges.csv'
 
 
 def bfs(start, end):
+    ''' 
+    Read the edges.csv file and put the node data in a dict() called graph.
+    Use another dict() called visited to record the nodes' parents, if it is not visited, the value is -1.
+    And do the bfs, then find the final path by looking the parents of nodes in the visited dict(), 
+    calculate the total distance at the same time.
+    ''' 
     # Begin your code (Part 1)
     file = open(edgeFile, 'r')
     csvFile = csv.reader(file)

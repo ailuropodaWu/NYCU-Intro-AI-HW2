@@ -3,6 +3,13 @@ edgeFile = 'edges.csv'
 
 
 def ucs(start, end):
+    ''' 
+    Read the edges.csv file and put the node data in a dict() called graph.
+    Use another dict() called visited to record the nodes' parents, if it is not visited, the value is -1.
+    Use another dict() called cost to record the cost of the node, and initialize it to 10^8.
+    And do the ucs(dijkstra), then find the final path by looking the parent of nodes' in the visited dict(), 
+    calculate the total distance at the same time.
+    ''' 
     # Begin your code (Part 3)
     file = open(edgeFile, 'r')
     csvFile = csv.reader(file)
